@@ -34,7 +34,7 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/sps_lpr_sz_20"
+        android:layout_marginTop="@dimen/sps_lpr_sz_20"
         app:strokeColor="@android:color/darker_gray"
         app:strokeWidth="1dp">
 
@@ -97,7 +97,7 @@
             android:layout_height="@dimen/sps_lpr_sz_30"
             android:layout_width="@dimen/sps_lpr_sz_30"
             android:layout_marginStart="@dimen/sps_lpr_5"
-            app:cv_icon="@drawable/ic_baseline_library_add_24"
+            app:cv_icon="@drawable/ic_baseline_add_24"
             app:cv_icon_margin="@dimen/sps_lpr_7"
             app:cv_fillColor="@android:color/white"
             app:cv_strokeColorValue="@android:color/white"
