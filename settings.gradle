@@ -1,0 +1,3 @@
+include ':SpControlBox'
+include ':app'
+rootProject.name = "SPSControlBox"

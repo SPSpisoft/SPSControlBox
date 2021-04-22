@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SpCtrlBox">
+
+        <attr name="icon_add" format="reference" />
+        <attr name="icon_edit" format="reference" />
+        <attr name="icon_delete" format="reference" />
+        <attr name="icon_cancel" format="reference" />
+        <attr name="icon_save" format="reference" />
+
+    </declare-styleable>
+</resources>
