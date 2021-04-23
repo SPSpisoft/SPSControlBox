@@ -26,6 +26,7 @@
         android:layout_height="@dimen/sps_lpr_sz_40"
         android:layout_width="@dimen/sps_lpr_sz_40"
         android:layout_marginStart="@dimen/sps_lpr_sz_30"
+        android:layout_alignParentStart="true"
         app:cv_icon_margin="@dimen/sps_lpr_10"
         app:cv_strokeColorValue="@android:color/white"
         app:cv_fillColor="@android:color/white"
@@ -40,22 +41,22 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/incRecyclerView"
-            android:layout_marginTop="@dimen/sps_lpr_sz_20"
-            android:layout_marginBottom="@dimen/sps_lpr_sz_16"
-            android:layout_marginStart="@dimen/sps_lpr_sz_16"
-            android:layout_marginEnd="@dimen/sps_lpr_sz_16"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/sps_lpr_sz_16"
+            android:layout_marginTop="@dimen/sps_lpr_sz_20"
+            android:layout_marginEnd="@dimen/sps_lpr_sz_16"
+            android:layout_marginBottom="@dimen/sps_lpr_sz_16" />
 
         <RelativeLayout
             android:id="@+id/lyMain"
-            android:visibility="gone"
-            android:layout_marginTop="@dimen/sps_lpr_sz_20"
-            android:layout_marginBottom="@dimen/sps_lpr_sz_16"
-            android:layout_marginStart="@dimen/sps_lpr_sz_16"
-            android:layout_marginEnd="@dimen/sps_lpr_sz_16"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/sps_lpr_sz_16"
+            android:layout_marginTop="@dimen/sps_lpr_sz_20"
+            android:layout_marginEnd="@dimen/sps_lpr_sz_16"
+            android:layout_marginBottom="@dimen/sps_lpr_sz_16"
+            android:visibility="gone" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -104,6 +105,51 @@
             app:cv_backgroundColorValue="@android:color/darker_gray"/>
 
     </LinearLayout>
+
+    <com.spisoft.spcircleview.CircleView
+        android:id="@+id/cv_before_n"
+        android:layout_height="@dimen/sps_lpr_sz_30"
+        android:layout_width="@dimen/sps_lpr_sz_30"
+        android:layout_marginTop="@dimen/sps_lpr_10"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:visibility="gone"
+        android:elevation="5dp"
+        app:cv_icon="@drawable/ic_baseline_navigate_before_24"
+        app:cv_icon_margin="@dimen/sps_lpr_5"
+        app:cv_strokeColorValue="@android:color/white"
+        app:cv_fillColor="@android:color/white"
+        app:cv_backgroundColorValue="@android:color/white"/>
+
+    <com.spisoft.spcircleview.CircleView
+        android:id="@+id/cv_next_n"
+        android:layout_height="@dimen/sps_lpr_sz_30"
+        android:layout_width="@dimen/sps_lpr_sz_30"
+        android:layout_marginTop="@dimen/sps_lpr_10"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"
+        android:elevation="5dp"
+        app:cv_icon="@drawable/ic_baseline_navigate_next_24"
+        app:cv_icon_margin="@dimen/sps_lpr_5"
+        app:cv_strokeColorValue="@android:color/white"
+        app:cv_fillColor="@android:color/white"
+        app:cv_backgroundColorValue="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/txtDesc_n"
+        android:textColor="@android:color/darker_gray"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_toEndOf="@+id/cv_head"
+        android:layout_marginTop="@dimen/sps_lpr_10"
+        android:layout_marginStart="@dimen/sps_lpr_sz_20"
+        android:layout_marginEnd="@dimen/sps_lpr_5"
+        android:elevation="1dp"
+        android:outlineProvider="none"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:id="@+id/lyCnt"

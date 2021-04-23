@@ -9,5 +9,6 @@
         <attr name="icon_cancel" format="reference" />
         <attr name="icon_save" format="reference" />
 
+        <attr name="view_bottom" format="boolean" />
     </declare-styleable>
 </resources>
