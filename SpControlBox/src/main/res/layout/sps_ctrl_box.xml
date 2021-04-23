@@ -25,7 +25,7 @@
         android:elevation="2dp"
         android:layout_height="@dimen/sps_lpr_sz_40"
         android:layout_width="@dimen/sps_lpr_sz_40"
-        android:layout_marginStart="@dimen/sps_lpr_sz_30"
+        android:layout_marginStart="@dimen/sps_lpr_sz_20"
         android:layout_alignParentStart="true"
         app:cv_icon_margin="@dimen/sps_lpr_10"
         app:cv_strokeColorValue="@android:color/white"
@@ -67,7 +67,7 @@
         android:elevation="2dp"
         android:orientation="horizontal"
         android:layout_marginTop="@dimen/sps_lpr_5"
-        android:layout_marginEnd="@dimen/sps_lpr_sz_30"
+        android:layout_marginEnd="@dimen/sps_lpr_sz_20"
         android:layout_alignParentEnd="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
