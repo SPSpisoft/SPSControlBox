@@ -144,20 +144,18 @@ public class SpCtrlBox extends RelativeLayout {
         isViewBottom = a.getBoolean(R.styleable.SpCtrlBox_view_bottom, false);
 
         int drawableResId_Add = a.getResourceId(R.styleable.SpCtrlBox_icon_add, -1);
-        if(drawableResId_Add >= 0) {
+        if(drawableResId_Add >= 0)
             mIconAdd = getResources().getDrawable(drawableResId_Add);
-//        else
-//            mIconAdd = getResources().getDrawable(R.drawable.ic_baseline_add_24);
-            vAdd.setIcon(mIconAdd);
-        }
+        else
+            mIconAdd = getResources().getDrawable(R.drawable.ic_baseline_add_24);
+        vAdd.setIcon(mIconAdd);
 
         int drawableResId_Edit = a.getResourceId(R.styleable.SpCtrlBox_icon_edit, -1);
-        if(drawableResId_Edit >= 0) {
+        if(drawableResId_Edit >= 0)
             mIconEdit = getResources().getDrawable(drawableResId_Edit);
-//        else
-//            mIconEdit = getResources().getDrawable(R.drawable.ic_baseline_edit_24);
-            vEdit.setIcon(mIconEdit);
-        }
+        else
+            mIconEdit = getResources().getDrawable(R.drawable.ic_baseline_edit_24);
+        vEdit.setIcon(mIconEdit);
 
 //        int drawableResId_Add = a.getResourceId(R.styleable.SpLateBox_icon_add, -1);
 //        if(drawableResId_Add >= 0) vAdd.setIcon(getResources().getDrawable(drawableResId_Add));
@@ -210,6 +208,7 @@ public class SpCtrlBox extends RelativeLayout {
         }
 
         isEditMode = editMode;
+        invalidate();
     }
 
     private void SetViewVisible(boolean visible) {
