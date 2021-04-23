@@ -183,7 +183,7 @@ public class SpCtrlBox extends RelativeLayout {
         if (editMode)
         {
             vEdit.setVisibility(VISIBLE);
-            vEdit.setIcon(mIconSave);
+            vEdit.setIcon(mIconCancel);
             vAdd.setIcon(mIconCancel);
             SetViewVisible(false);
             IncRecyclerView.setVisibility(GONE);
