@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 import com.nshmura.snappysmoothscroller.LinearLayoutScrollVectorDetector;
 import com.nshmura.snappysmoothscroller.SnappySmoothScroller;
@@ -145,14 +146,14 @@ public class SpCtrlBox extends RelativeLayout {
 
         int drawableResId_Add = a.getResourceId(R.styleable.SpCtrlBox_icon_add, -1);
         if(drawableResId_Add >= 0)
-            mIconAdd = getResources().getDrawable(drawableResId_Add);
+            mIconAdd = VectorDrawableCompat.create(getResources(), drawableResId_Add, null);
         else
             mIconAdd = getResources().getDrawable(R.drawable.ic_baseline_add_24);
         vAdd.setIcon(mIconAdd);
 
         int drawableResId_Edit = a.getResourceId(R.styleable.SpCtrlBox_icon_edit, -1);
         if(drawableResId_Edit >= 0)
-            mIconEdit = getResources().getDrawable(drawableResId_Edit);
+            mIconEdit = VectorDrawableCompat.create(getResources(), drawableResId_Edit, null);
         else
             mIconEdit = getResources().getDrawable(R.drawable.ic_baseline_edit_24);
         vEdit.setIcon(mIconEdit);
@@ -165,13 +166,13 @@ public class SpCtrlBox extends RelativeLayout {
 
         int drawableResId_Save = a.getResourceId(R.styleable.SpCtrlBox_icon_save, -1);
         if(drawableResId_Save >= 0)
-            mIconSave = getResources().getDrawable(drawableResId_Save);
+            mIconSave = VectorDrawableCompat.create(getResources(), drawableResId_Save, null);
         else
             mIconSave = getResources().getDrawable(R.drawable.ic_baseline_check_24);
 
         int drawableResId_Cancel = a.getResourceId(R.styleable.SpCtrlBox_icon_cancel, -1);
         if(drawableResId_Cancel >= 0)
-            mIconCancel = getResources().getDrawable(drawableResId_Cancel);
+            mIconCancel = VectorDrawableCompat.create(getResources(), drawableResId_Cancel, null);
         else
             mIconCancel = getResources().getDrawable(R.drawable.ic_baseline_close_24);
 
