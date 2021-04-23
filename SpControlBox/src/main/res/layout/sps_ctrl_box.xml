@@ -35,10 +35,10 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/sps_lpr_10"
-        android:layout_marginBottom="@dimen/sps_lpr_5"
-        android:layout_marginStart="@dimen/sps_lpr_5"
-        android:layout_marginEnd="@dimen/sps_lpr_5"
+        android:layout_marginTop="@dimen/sps_lpr_sz_20"
+        android:layout_marginBottom="@dimen/sps_lpr_10"
+        android:layout_marginStart="@dimen/sps_lpr_10"
+        android:layout_marginEnd="@dimen/sps_lpr_10"
         app:strokeColor="@android:color/darker_gray"
         app:strokeWidth="1dp">
 
