@@ -10,5 +10,6 @@
         <attr name="icon_save" format="reference" />
 
         <attr name="view_bottom" format="boolean" />
+<!--        <attr name="view_i" format="reference" />-->
     </declare-styleable>
 </resources>

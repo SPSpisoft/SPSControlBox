@@ -145,14 +145,14 @@ public class SpCtrlBox extends RelativeLayout {
         isViewBottom = a.getBoolean(R.styleable.SpCtrlBox_view_bottom, false);
 
         int drawableResId_Add = a.getResourceId(R.styleable.SpCtrlBox_icon_add, -1);
-        if(drawableResId_Add >= 0)
+        if(drawableResId_Add > 0)
             mIconAdd = VectorDrawableCompat.create(getResources(), drawableResId_Add, null);
         else
             mIconAdd = getResources().getDrawable(R.drawable.ic_baseline_add_24);
         vAdd.setIcon(mIconAdd);
 
         int drawableResId_Edit = a.getResourceId(R.styleable.SpCtrlBox_icon_edit, -1);
-        if(drawableResId_Edit >= 0)
+        if(drawableResId_Edit > 0)
             mIconEdit = VectorDrawableCompat.create(getResources(), drawableResId_Edit, null);
         else
             mIconEdit = getResources().getDrawable(R.drawable.ic_baseline_edit_24);
@@ -164,16 +164,16 @@ public class SpCtrlBox extends RelativeLayout {
 //        int drawableResId_Edit = a.getResourceId(R.styleable.SpLateBox_icon_edit, -1);
 //        if(drawableResId_Edit >= 0) vEdit.setIcon(getResources().getDrawable(drawableResId_Edit));
 
-//        int drawableResId_Cancel = a.getResourceId(R.styleable.SpCtrlBox_icon_cancel, -1);
-//        if(drawableResId_Cancel >= 0)
-//            mIconCancel = VectorDrawableCompat.create(getResources(), drawableResId_Cancel, null);
-//        else
+        int drawableResId_Cancel = a.getResourceId(R.styleable.SpCtrlBox_icon_cancel, -1);
+        if(drawableResId_Cancel > 0)
+            mIconCancel = VectorDrawableCompat.create(getResources(), drawableResId_Cancel, null);
+        else
             mIconCancel = getResources().getDrawable(R.drawable.ic_baseline_close_24);
 
-//        int drawableResId_Save = a.getResourceId(R.styleable.SpCtrlBox_icon_save, -1);
-//        if(drawableResId_Save >= 0)
-//            mIconSave = VectorDrawableCompat.create(getResources(), drawableResId_Save, null);
-//        else
+        int drawableResId_Save = a.getResourceId(R.styleable.SpCtrlBox_icon_save, -1);
+        if(drawableResId_Save > 0)
+            mIconSave = VectorDrawableCompat.create(getResources(), drawableResId_Save, null);
+        else
             mIconSave = getResources().getDrawable(R.drawable.ic_baseline_check_24);
 
         a.recycle();
