@@ -143,8 +143,8 @@ public class SpCtrlBox extends RelativeLayout {
 
 //        mIconSave = getResources().getDrawable(R.drawable.ic_baseline_check_24);
         mIconSave = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_check_24, null);
-        mIconEdit = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_edit_24, null);
-        mIconAdd = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_add_24, null);
+        mIconEdit = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_sp_edit_24, null);
+        mIconAdd = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_sp_add_24, null);
         mIconCancel = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_close_24, null);
 
         //-------------------------------------------
