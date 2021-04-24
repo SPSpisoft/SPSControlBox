@@ -177,6 +177,7 @@ public class SpCtrlBox extends RelativeLayout {
             mIconSave = getResources().getDrawable(R.drawable.ic_baseline_check_24);
 
         a.recycle();
+        invalidate();
     }
 
     public void setMode(boolean editMode, int currentPosition){
