@@ -16,8 +16,7 @@
         android:id="@+id/splatboxTel"
         android:layout_marginTop="@dimen/sps_lpr_5"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/sps_lpr_150"
-        tools:ignore="InvalidId,MissingConstraints" />
+        android:layout_height="@dimen/sps_lpr_150"/>
 
     <com.spisoft.spcontrolbox.SpCtrlBox
         android:id="@+id/splatboxAdd"

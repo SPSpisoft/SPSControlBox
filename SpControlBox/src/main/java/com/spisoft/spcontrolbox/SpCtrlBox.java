@@ -3,6 +3,7 @@ package com.spisoft.spcontrolbox;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
@@ -43,28 +45,28 @@ public class SpCtrlBox extends RelativeLayout {
 
     public SpCtrlBox(Context context) {
         super(context);
-        init(context, null , -1);
+        init(context, null);
     }
 
     public SpCtrlBox(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init(context, null , -1);
+        init(context, null);
     }
 
     public SpCtrlBox(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, null , -1);
+        init(context, null);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public SpCtrlBox(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(context, null , -1);
+        init(context, null);
     }
 
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    private void init(Context context, AttributeSet attrs, int defStyle) {
+    private void init(Context context, AttributeSet attrs) {
         View rootView = inflate(context, R.layout.sps_ctrl_box, SpCtrlBox.this);
 
         mContext = context;
@@ -139,42 +141,16 @@ public class SpCtrlBox extends RelativeLayout {
                 setMode(true, -1);
         });
 
+//        mIconSave = getResources().getDrawable(R.drawable.ic_baseline_check_24);
+        mIconSave = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_check_24, null);
+        mIconEdit = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_edit_24, null);
+        mIconAdd = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_add_24, null);
+        mIconCancel = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_close_24, null);
+
         //-------------------------------------------
-        final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.SpCtrlBox, defStyle, 0);
+        final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.SpCtrlBox, -1, 0);
 
         isViewBottom = a.getBoolean(R.styleable.SpCtrlBox_view_bottom, false);
-
-        int drawableResId_Add = a.getResourceId(R.styleable.SpCtrlBox_icon_add, -1);
-        if(drawableResId_Add > 0)
-            mIconAdd = VectorDrawableCompat.create(getResources(), drawableResId_Add, null);
-        else
-            mIconAdd = getResources().getDrawable(R.drawable.ic_baseline_add_24);
-        vAdd.setIcon(mIconAdd);
-
-        int drawableResId_Edit = a.getResourceId(R.styleable.SpCtrlBox_icon_edit, -1);
-        if(drawableResId_Edit > 0)
-            mIconEdit = VectorDrawableCompat.create(getResources(), drawableResId_Edit, null);
-        else
-            mIconEdit = getResources().getDrawable(R.drawable.ic_baseline_edit_24);
-        vEdit.setIcon(mIconEdit);
-
-//        int drawableResId_Add = a.getResourceId(R.styleable.SpLateBox_icon_add, -1);
-//        if(drawableResId_Add >= 0) vAdd.setIcon(getResources().getDrawable(drawableResId_Add));
-
-//        int drawableResId_Edit = a.getResourceId(R.styleable.SpLateBox_icon_edit, -1);
-//        if(drawableResId_Edit >= 0) vEdit.setIcon(getResources().getDrawable(drawableResId_Edit));
-
-        int drawableResId_Cancel = a.getResourceId(R.styleable.SpCtrlBox_icon_cancel, -1);
-        if(drawableResId_Cancel > 0)
-            mIconCancel = VectorDrawableCompat.create(getResources(), drawableResId_Cancel, null);
-        else
-            mIconCancel = getResources().getDrawable(R.drawable.ic_baseline_close_24);
-
-        int drawableResId_Save = a.getResourceId(R.styleable.SpCtrlBox_icon_save, -1);
-        if(drawableResId_Save > 0)
-            mIconSave = VectorDrawableCompat.create(getResources(), drawableResId_Save, null);
-        else
-            mIconSave = getResources().getDrawable(R.drawable.ic_baseline_check_24);
 
         a.recycle();
         invalidate();
@@ -238,6 +214,15 @@ public class SpCtrlBox extends RelativeLayout {
         IvsHead.setIcon(getResources().getDrawable(headSrc));
         if(strokeColor != 0) IvsHead.setStrokeColor(strokeColor);
         if(fillColor != 0) IvsHead.setFillColor(fillColor);
+        invalidate();
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    public void SetSrc(int addIcn, int cancelIcn, int editIcn, int saveIcn){
+        mIconAdd = getResources().getDrawable(addIcn);
+        mIconCancel = getResources().getDrawable(cancelIcn);
+        mIconEdit = getResources().getDrawable(editIcn);
+        mIconSave = getResources().getDrawable(saveIcn);
         invalidate();
     }
 

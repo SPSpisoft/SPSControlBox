@@ -26,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
         SpCtrlBox spLateBoxAdd = findViewById(R.id.splatboxAdd);
         spLateBoxAdd.SetHeadSrc(R.drawable.ic_baseline_add_24, 0, 0);
 
+//        spLateBoxAdd.SetSrc(
+//                R.drawable.ic_baseline_note_add_24,
+//                R.drawable.ic_baseline_post_add_24,
+//                R.drawable.ic_baseline_note_add_24,
+//                R.drawable.ic_baseline_note_add_24);
+
         LayoutInflater inflater0 = LayoutInflater.from(MainActivity.this);
         spLateBoxAdd.AddView(inflater0.inflate(R.layout.test_view, null));
 

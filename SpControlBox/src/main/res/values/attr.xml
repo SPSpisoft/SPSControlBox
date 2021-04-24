@@ -3,11 +3,11 @@
 
     <declare-styleable name="SpCtrlBox">
 
-        <attr name="icon_add" format="reference" />
-        <attr name="icon_edit" format="reference" />
-        <attr name="icon_delete" format="reference" />
-        <attr name="icon_cancel" format="reference" />
-        <attr name="icon_save" format="reference" />
+<!--        <attr name="icon_add" format="reference" />-->
+<!--        <attr name="icon_edit" format="reference" />-->
+<!--        <attr name="icon_delete" format="reference" />-->
+<!--        <attr name="icon_cancel" format="reference" />-->
+<!--        <attr name="icon_save" format="reference" />-->
 
         <attr name="view_bottom" format="boolean" />
 <!--        <attr name="view_i" format="reference" />-->
