@@ -173,7 +173,7 @@ public class SpCtrlBox extends RelativeLayout {
         if (editMode)
         {
             vLyEdit.setVisibility(VISIBLE);
-            vEdit.setIcon(mIconSave, Color.BLUE);
+            vEdit.setIcon(mIconSave, 0);
 //            ivEdit.setImageDrawable(mIconSave);
 //            vEdit.setAlpha(180);
 //            vAdd.setAlpha(180);
@@ -202,9 +202,9 @@ public class SpCtrlBox extends RelativeLayout {
             else
                 SetViewVisible(true);
 
-            vEdit.setIcon(mIconEdit, Color.GREEN);
+            vEdit.setIcon(mIconEdit, 0);
 //            ivEdit.setImageDrawable(mIconEdit);
-            vAdd.setIcon(mIconAdd, Color.RED);
+            vAdd.setIcon(mIconAdd, 0);
 //            vEdit.setAlpha(180);
 //            vAdd.setAlpha(180);
             IncRecyclerView.setVisibility(VISIBLE);
