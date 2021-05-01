@@ -13,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -172,11 +173,12 @@ public class SpCtrlBox extends RelativeLayout {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    Toast.makeText(mContext, "R_1", Toast.LENGTH_SHORT).show();
                     vAdd.setIcon(mIconCancel);
                     vEdit.setIcon(mIconSave);
                     invalidate();
                 }
-            }, 300);
+            }, 500);
         }
         else
         {
@@ -199,11 +201,12 @@ public class SpCtrlBox extends RelativeLayout {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    Toast.makeText(mContext, "R_2", Toast.LENGTH_SHORT).show();
                     vEdit.setIcon(mIconEdit);
                     vAdd.setIcon(mIconAdd);
                     invalidate();
                 }
-            }, 300);
+            }, 500);
         }
 
         isEditMode = editMode;
