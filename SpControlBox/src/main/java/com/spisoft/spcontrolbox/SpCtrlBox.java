@@ -37,6 +37,7 @@ public class SpCtrlBox extends RelativeLayout {
     private LinearLayoutManager HorizontalLayout;
     private TextView vText, vText_n;
     private CircleView IvsHead;
+    private CircleView vDelete;
     private CircleView vEdit;
     private CircleView vAdd;
 //    private View vLyEdit;
@@ -44,6 +45,7 @@ public class SpCtrlBox extends RelativeLayout {
     private Drawable mIconAdd, mIconEdit, mIconSave, mIconCancel;
     private RelativeLayout vMain;
     private LinearLayout vLyControl;
+    private OnDeleteClickTaskListener mOnDeleteClickTaskListener;
     private OnAddClickTaskListener mOnAddClickTaskListener;
     private OnEditClickTaskListener mOnEditClickTaskListener;
     private boolean isEditMode = false;
@@ -90,6 +92,7 @@ public class SpCtrlBox extends RelativeLayout {
 
 //        vLyEdit = rootView.findViewById(R.id.ily_edit);
 //        ivEdit = rootView.findViewById(R.id.iv_edit);
+        vDelete = rootView.findViewById(R.id.cv_delete);
         vEdit = rootView.findViewById(R.id.cv_edit);
         vAdd = rootView.findViewById(R.id.cv_add);
 
@@ -157,6 +160,10 @@ public class SpCtrlBox extends RelativeLayout {
                 setMode(true, -1);
         });
 
+        vDelete.setOnClickListener(v -> {
+            mOnDeleteClickTaskListener.onEvent();
+        });
+
 //        mIconSave = getResources().getDrawable(R.drawable.ic_baseline_check_24);
 
 
@@ -172,6 +179,7 @@ public class SpCtrlBox extends RelativeLayout {
     public void setMode(boolean editMode, int currentPosition){
         if (editMode)
         {
+            vDelete.setVisibility(GONE);
             vEdit.setVisibility(VISIBLE);
             vEdit.setIcon(mIconSave, 0);
 //            ivEdit.setImageDrawable(mIconSave);
@@ -196,12 +204,25 @@ public class SpCtrlBox extends RelativeLayout {
         {
             RefreshCntText();
             if(IncRecyclerView.getAdapter() == null || IncRecyclerView.getAdapter().getItemCount() == 0){
+                vDelete.setVisibility(GONE);
                 vEdit.setVisibility(GONE);
                 SetViewVisible(false);
                 invalidate();
             }
             else
                 SetViewVisible(true);
+
+
+
+            if(HorizontalLayout.getItemCount() > 0)
+            {
+                vEdit.setVisibility(GONE);
+                vDelete.setVisibility(GONE);
+            }
+            else {
+                vEdit.setVisibility(VISIBLE);
+                vDelete.setVisibility(VISIBLE);
+            }
 
             vEdit.setIcon(mIconEdit, 0);
 //            ivEdit.setImageDrawable(mIconEdit);
@@ -317,7 +338,9 @@ public class SpCtrlBox extends RelativeLayout {
 
         if(adapter.getItemCount() > 0){
             SetViewVisible(true);
+            vDelete.setVisibility(VISIBLE);
             vEdit.setVisibility(VISIBLE);
+            vEdit.setIcon(mIconEdit, 0);
         }
 
         IncRecyclerView.invalidate();
@@ -367,5 +390,13 @@ public class SpCtrlBox extends RelativeLayout {
 
     public void setOnEditClickTaskListener(OnEditClickTaskListener eventListener) {
         mOnEditClickTaskListener = eventListener;
+    }
+
+    public interface OnDeleteClickTaskListener {
+        void onEvent();
+    }
+
+    public void setOnDeleteClickTaskListener(OnDeleteClickTaskListener eventListener) {
+        mOnDeleteClickTaskListener = eventListener;
     }
 }

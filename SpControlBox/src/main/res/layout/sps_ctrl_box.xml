@@ -73,8 +73,7 @@
         android:layout_alignParentEnd="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:visibility="visible"
-        tools:targetApi="lollipop">
+        tools:visibility="visible">
 
         <!--        <com.spisoft.spcircleview.CircleView-->
         <!--            android:id="@+id/cv_delete"-->
@@ -87,37 +86,37 @@
         <!--            app:cv_strokeColorValue="@android:color/white"-->
         <!--            app:cv_backgroundColorValue="@android:color/darker_gray"/>-->
 
-<!--        <RelativeLayout-->
-<!--            android:id="@+id/ily_edit"-->
-<!--            android:visibility="gone"-->
-<!--            tools:visibility="visible"-->
-<!--            android:layout_width="@dimen/sps_lpr_sz_30"-->
-<!--            android:layout_height="@dimen/sps_lpr_sz_30">-->
+        <com.spisoft.spcircleview.CircleView
+            android:id="@+id/cv_delete"
+            android:visibility="visible"
+            tools:visibility="visible"
+            android:layout_height="@dimen/sps_lpr_sz_30"
+            android:layout_width="@dimen/sps_lpr_sz_30"
+            android:layout_marginStart="@dimen/sps_lpr_5"
+            app:cv_icon_margin="@dimen/sps_lpr_7"
+            app:cv_icon="@drawable/ic_baseline_delete_24"
+            app:cv_fillColor="@android:color/white"
+            app:cv_strokeColorValue="@android:color/white"
+            app:cv_backgroundColorValue="@android:color/darker_gray"/>
 
-            <com.spisoft.spcircleview.CircleView
-                android:id="@+id/cv_edit"
-                android:visibility="visible"
-                tools:visibility="visible"
-                android:layout_height="@dimen/sps_lpr_sz_30"
-                android:layout_width="@dimen/sps_lpr_sz_30"
-                android:paddingStart="@dimen/sps_lpr_5"
-                app:cv_icon_margin="@dimen/sps_lpr_7"
-                app:cv_fillColor="@android:color/white"
-                app:cv_strokeColorValue="@android:color/white"
-                app:cv_backgroundColorValue="@android:color/darker_gray"/>
+        <!--        <RelativeLayout-->
+        <!--            android:id="@+id/ily_edit"-->
+        <!--            android:visibility="gone"-->
+        <!--            tools:visibility="visible"-->
+        <!--            android:layout_width="@dimen/sps_lpr_sz_30"-->
+        <!--            android:layout_height="@dimen/sps_lpr_sz_30">-->
 
-<!--            <ImageView-->
-<!--                android:id="@+id/iv_edit"-->
-<!--                android:elevation="20dp"-->
-<!--                android:background="@android:color/holo_red_dark"-->
-<!--                android:layout_centerInParent="true"-->
-<!--                android:padding="2dp"-->
-<!--                android:layout_height="@dimen/sps_lpr_sz_20"-->
-<!--                android:layout_width="@dimen/sps_lpr_sz_20"-->
-<!--                android:layout_marginStart="@dimen/sps_lpr_5"-->
-<!--                android:src="@drawable/ic_baseline_edit_24"/>-->
-
-<!--        </RelativeLayout>-->
+        <com.spisoft.spcircleview.CircleView
+            android:id="@+id/cv_edit"
+            android:visibility="visible"
+            tools:visibility="visible"
+            android:layout_height="@dimen/sps_lpr_sz_30"
+            android:layout_width="@dimen/sps_lpr_sz_30"
+            android:layout_marginStart="@dimen/sps_lpr_5"
+            app:cv_icon_margin="@dimen/sps_lpr_7"
+            app:cv_fillColor="@android:color/white"
+            app:cv_strokeColorValue="@android:color/white"
+            app:cv_backgroundColorValue="@android:color/darker_gray"/>
 
         <com.spisoft.spcircleview.CircleView
             android:id="@+id/cv_add"
