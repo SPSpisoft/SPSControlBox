@@ -96,8 +96,8 @@
 
             <com.spisoft.spcircleview.CircleView
                 android:id="@+id/cv_edit"
-                android:visibility="visible"
-                tools:visibility="visible"
+                android:visibility="gone"
+                tools:visibility="gone"
                 android:layout_height="@dimen/sps_lpr_sz_30"
                 android:layout_width="@dimen/sps_lpr_sz_30"
                 android:paddingStart="@dimen/sps_lpr_5"
