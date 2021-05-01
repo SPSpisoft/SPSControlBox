@@ -170,15 +170,15 @@ public class SpCtrlBox extends RelativeLayout {
             IncRecyclerView.setVisibility(GONE);
             vMain.setVisibility(VISIBLE);
 
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(mContext, "R_1", Toast.LENGTH_SHORT).show();
-                    vAdd.setIcon(mIconCancel);
-                    vEdit.setIcon(mIconSave);
-                    invalidate();
-                }
-            }, 500);
+//            new Handler().postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    Toast.makeText(mContext, "R_1", Toast.LENGTH_SHORT).show();
+//                    vAdd.setIcon(mIconCancel);
+//                    vEdit.setIcon(mIconSave);
+//                    invalidate();
+//                }
+//            }, 500);
         }
         else
         {
@@ -198,15 +198,15 @@ public class SpCtrlBox extends RelativeLayout {
             if(currentPosition >= 0)
                 HorizontalLayout.smoothScrollToPosition(IncRecyclerView, null , currentPosition);
 
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(mContext, "R_2", Toast.LENGTH_SHORT).show();
-                    vEdit.setIcon(mIconEdit);
-                    vAdd.setIcon(mIconAdd);
-                    invalidate();
-                }
-            }, 500);
+//            new Handler().postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    Toast.makeText(mContext, "R_2", Toast.LENGTH_SHORT).show();
+//                    vEdit.setIcon(mIconEdit);
+//                    vAdd.setIcon(mIconAdd);
+//                    invalidate();
+//                }
+//            }, 500);
         }
 
         isEditMode = editMode;
