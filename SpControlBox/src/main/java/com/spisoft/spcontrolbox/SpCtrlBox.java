@@ -214,12 +214,12 @@ public class SpCtrlBox extends RelativeLayout {
 
             if(HorizontalLayout.getItemCount() > 0)
             {
-                vEdit.setVisibility(GONE);
-                vDelete.setVisibility(GONE);
-            }
-            else {
                 vEdit.setVisibility(VISIBLE);
                 vDelete.setVisibility(VISIBLE);
+            }
+            else {
+                vEdit.setVisibility(GONE);
+                vDelete.setVisibility(GONE);
             }
 
             vEdit.setIcon(mIconEdit, 0);
