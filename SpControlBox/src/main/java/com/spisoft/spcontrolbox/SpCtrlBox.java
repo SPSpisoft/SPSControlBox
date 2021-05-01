@@ -161,7 +161,7 @@ public class SpCtrlBox extends RelativeLayout {
         });
 
         vDelete.setOnClickListener(v -> {
-            mOnDeleteClickTaskListener.onEvent();
+            if(mOnDeleteClickTaskListener != null) mOnDeleteClickTaskListener.onEvent();
         });
 
 //        mIconSave = getResources().getDrawable(R.drawable.ic_baseline_check_24);
@@ -211,8 +211,6 @@ public class SpCtrlBox extends RelativeLayout {
             }
             else
                 SetViewVisible(true);
-
-
 
             if(HorizontalLayout.getItemCount() > 0)
             {
@@ -271,13 +269,14 @@ public class SpCtrlBox extends RelativeLayout {
     }
 
     public void SetEditable(boolean editMode){
-        if(editMode)
+        if(editMode) {
             vLyControl.setVisibility(VISIBLE);
+        }
         else{
             vLyControl.setVisibility(GONE);
-            if(isEditMode)
-                setMode(false, -1);
         }
+        if(isEditMode)
+            setMode(false, -1);
         invalidate();
     }
 
