@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -167,6 +168,15 @@ public class SpCtrlBox extends RelativeLayout {
             SetViewVisible(false);
             IncRecyclerView.setVisibility(GONE);
             vMain.setVisibility(VISIBLE);
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    vAdd.setIcon(mIconCancel);
+                    vEdit.setIcon(mIconSave);
+                    invalidate();
+                }
+            }, 300);
         }
         else
         {
@@ -185,6 +195,15 @@ public class SpCtrlBox extends RelativeLayout {
 
             if(currentPosition >= 0)
                 HorizontalLayout.smoothScrollToPosition(IncRecyclerView, null , currentPosition);
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    vEdit.setIcon(mIconEdit);
+                    vAdd.setIcon(mIconAdd);
+                    invalidate();
+                }
+            }, 300);
         }
 
         isEditMode = editMode;
