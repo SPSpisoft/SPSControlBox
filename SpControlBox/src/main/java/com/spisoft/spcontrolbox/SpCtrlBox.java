@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
@@ -39,7 +40,7 @@ public class SpCtrlBox extends RelativeLayout {
     private CircleView vEdit;
     private CircleView vAdd;
     private View vLyEdit;
-    private ImageView ivEdit;
+//    private ImageView ivEdit;
     private Drawable mIconAdd, mIconEdit, mIconSave, mIconCancel;
     private RelativeLayout vMain;
     private LinearLayout vLyControl;
@@ -88,7 +89,7 @@ public class SpCtrlBox extends RelativeLayout {
         vNext_n = rootView.findViewById(R.id.cv_next_n);
 
         vLyEdit = rootView.findViewById(R.id.ily_edit);
-        ivEdit = rootView.findViewById(R.id.iv_edit);
+//        ivEdit = rootView.findViewById(R.id.iv_edit);
         vEdit = rootView.findViewById(R.id.cv_edit);
         vAdd = rootView.findViewById(R.id.cv_add);
 
@@ -100,15 +101,15 @@ public class SpCtrlBox extends RelativeLayout {
 
         Configuration config = getResources().getConfiguration();
         if(config.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL) {
-            vBefore.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_before_24));
-            vBefore_n.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_before_24));
-            vNext.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_next_24));
-            vNext_n.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_next_24));
+            vBefore.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_before_24), 0);
+            vBefore_n.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_before_24), 0);
+            vNext.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_next_24), 0);
+            vNext_n.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_next_24), 0);
         }else {
-            vBefore.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_next_24));
-            vBefore_n.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_next_24));
-            vNext.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_before_24));
-            vNext_n.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_before_24));
+            vBefore.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_next_24), 0);
+            vBefore_n.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_next_24), 0);
+            vNext.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_before_24), 0);
+            vNext_n.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_before_24), 0);
         }
 
         vNext.setOnClickListener(v -> {
@@ -172,11 +173,11 @@ public class SpCtrlBox extends RelativeLayout {
         if (editMode)
         {
             vLyEdit.setVisibility(VISIBLE);
-//            vEdit.setIcon(mIconSave);
-            ivEdit.setImageDrawable(mIconSave);
+            vEdit.setIcon(mIconSave, Color.BLUE);
+//            ivEdit.setImageDrawable(mIconSave);
 //            vEdit.setAlpha(180);
 //            vAdd.setAlpha(180);
-            vAdd.setIcon(mIconCancel);
+            vAdd.setIcon(mIconCancel, 0);
             SetViewVisible(false);
             IncRecyclerView.setVisibility(GONE);
             vMain.setVisibility(VISIBLE);
@@ -201,9 +202,9 @@ public class SpCtrlBox extends RelativeLayout {
             else
                 SetViewVisible(true);
 
-//            vEdit.setIcon(mIconEdit);
-            ivEdit.setImageDrawable(mIconEdit);
-            vAdd.setIcon(mIconAdd);
+            vEdit.setIcon(mIconEdit, Color.GREEN);
+//            ivEdit.setImageDrawable(mIconEdit);
+            vAdd.setIcon(mIconAdd, Color.RED);
 //            vEdit.setAlpha(180);
 //            vAdd.setAlpha(180);
             IncRecyclerView.setVisibility(VISIBLE);
@@ -260,7 +261,7 @@ public class SpCtrlBox extends RelativeLayout {
 
     @SuppressLint("UseCompatLoadingForDrawables")
     public void SetHeadSrc(int headSrc, int fillColor, int strokeColor){
-        IvsHead.setIcon(getResources().getDrawable(headSrc));
+        IvsHead.setIcon(getResources().getDrawable(headSrc), 0);
         if(strokeColor != 0) IvsHead.setStrokeColor(strokeColor);
         if(fillColor != 0) IvsHead.setFillColor(fillColor);
         invalidate();
