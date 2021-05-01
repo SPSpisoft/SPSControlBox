@@ -11,6 +11,8 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,8 +38,11 @@ public class SpCtrlBox extends RelativeLayout {
     private CircleView IvsHead;
     private CircleView vEdit;
     private CircleView vAdd;
+    private View vLyEdit;
+    private ImageView ivEdit;
     private Drawable mIconAdd, mIconEdit, mIconSave, mIconCancel;
     private RelativeLayout vMain;
+    private LinearLayout vLyControl;
     private OnAddClickTaskListener mOnAddClickTaskListener;
     private OnEditClickTaskListener mOnEditClickTaskListener;
     private boolean isEditMode = false;
@@ -82,10 +87,13 @@ public class SpCtrlBox extends RelativeLayout {
         vNext = rootView.findViewById(R.id.cv_next);
         vNext_n = rootView.findViewById(R.id.cv_next_n);
 
+        vLyEdit = rootView.findViewById(R.id.ily_edit);
+        ivEdit = rootView.findViewById(R.id.iv_edit);
         vEdit = rootView.findViewById(R.id.cv_edit);
         vAdd = rootView.findViewById(R.id.cv_add);
 
         vMain = rootView.findViewById(R.id.lyMain);
+        vLyControl = rootView.findViewById(R.id.lyControl);
 
         vText = rootView.findViewById(R.id.txtDesc);
         vText_n = rootView.findViewById(R.id.txtDesc_n);
@@ -136,7 +144,7 @@ public class SpCtrlBox extends RelativeLayout {
         mIconEdit = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_edit_24, null);
         mIconAdd = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_add_24, null);
 
-        vEdit.setOnClickListener(v -> {
+        vLyEdit.setOnClickListener(v -> {
             mOnEditClickTaskListener.onEvent(isEditMode, HorizontalLayout.findFirstVisibleItemPosition());
             if (!isEditMode)
                 setMode(true, -1);
@@ -163,8 +171,11 @@ public class SpCtrlBox extends RelativeLayout {
     public void setMode(boolean editMode, int currentPosition){
         if (editMode)
         {
-            vEdit.setVisibility(VISIBLE);
-            vEdit.setIcon(mIconSave);
+            vLyEdit.setVisibility(VISIBLE);
+//            vEdit.setIcon(mIconSave);
+            ivEdit.setImageDrawable(mIconSave);
+//            vEdit.setAlpha(180);
+//            vAdd.setAlpha(180);
             vAdd.setIcon(mIconCancel);
             SetViewVisible(false);
             IncRecyclerView.setVisibility(GONE);
@@ -184,14 +195,17 @@ public class SpCtrlBox extends RelativeLayout {
         {
             RefreshCntText();
             if(IncRecyclerView.getAdapter() == null || IncRecyclerView.getAdapter().getItemCount() == 0){
-                vEdit.setVisibility(GONE);
+                vLyEdit.setVisibility(GONE);
                 SetViewVisible(false);
             }
             else
                 SetViewVisible(true);
 
-            vEdit.setIcon(mIconEdit);
+//            vEdit.setIcon(mIconEdit);
+            ivEdit.setImageDrawable(mIconEdit);
             vAdd.setIcon(mIconAdd);
+//            vEdit.setAlpha(180);
+//            vAdd.setAlpha(180);
             IncRecyclerView.setVisibility(VISIBLE);
             vMain.setVisibility(GONE);
 
@@ -231,6 +245,17 @@ public class SpCtrlBox extends RelativeLayout {
                 vNext_n.setVisibility(GONE);
             }
         }
+    }
+
+    public void SetEditable(boolean editMode){
+        if(editMode)
+            vLyControl.setVisibility(VISIBLE);
+        else{
+            vLyControl.setVisibility(GONE);
+            if(isEditMode)
+                setMode(false, -1);
+        }
+        invalidate();
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -290,7 +315,7 @@ public class SpCtrlBox extends RelativeLayout {
 
         if(adapter.getItemCount() > 0){
             SetViewVisible(true);
-            vEdit.setVisibility(VISIBLE);
+            vLyEdit.setVisibility(VISIBLE);
         }
 
         IncRecyclerView.invalidate();

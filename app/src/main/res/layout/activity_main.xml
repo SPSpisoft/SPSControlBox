@@ -11,6 +11,10 @@
 <!--    <com.spisoft.spcontrolbox.SpCtrlBox-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent"/>-->
+    <androidx.appcompat.widget.AppCompatToggleButton
+        android:id="@+id/toggleBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <com.spisoft.spcontrolbox.SpCtrlBox
         android:id="@+id/splatboxTel"

@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.spisoft.spcontrolbox.SpCtrlBox;
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ToggleButton TBTN = findViewById(R.id.toggleBtn);
 
         SpCtrlBox spLateBoxAdd = findViewById(R.id.splatboxAdd);
         spLateBoxAdd.SetHeadSrc(R.drawable.ic_baseline_add_24, 0, 0);
@@ -44,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
 
         SpCtrlBox spLateBoxTel = findViewById(R.id.splatboxTel);
         spLateBoxTel.SetHeadSrc(R.drawable.ic_baseline_check_24, Color.BLUE, Color.WHITE);
+
+        TBTN.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                spLateBoxTel.SetEditable(isChecked);
+            }
+        });
 
         LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
         View inflatedLayout = inflater.inflate(R.layout.test_view, null);
