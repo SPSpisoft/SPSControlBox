@@ -39,7 +39,7 @@ public class SpCtrlBox extends RelativeLayout {
     private CircleView IvsHead;
     private CircleView vEdit;
     private CircleView vAdd;
-    private View vLyEdit;
+//    private View vLyEdit;
 //    private ImageView ivEdit;
     private Drawable mIconAdd, mIconEdit, mIconSave, mIconCancel;
     private RelativeLayout vMain;
@@ -88,7 +88,7 @@ public class SpCtrlBox extends RelativeLayout {
         vNext = rootView.findViewById(R.id.cv_next);
         vNext_n = rootView.findViewById(R.id.cv_next_n);
 
-        vLyEdit = rootView.findViewById(R.id.ily_edit);
+//        vLyEdit = rootView.findViewById(R.id.ily_edit);
 //        ivEdit = rootView.findViewById(R.id.iv_edit);
         vEdit = rootView.findViewById(R.id.cv_edit);
         vAdd = rootView.findViewById(R.id.cv_add);
@@ -145,7 +145,7 @@ public class SpCtrlBox extends RelativeLayout {
         mIconEdit = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_edit_24, null);
         mIconAdd = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_add_24, null);
 
-        vLyEdit.setOnClickListener(v -> {
+        vEdit.setOnClickListener(v -> {
             mOnEditClickTaskListener.onEvent(isEditMode, HorizontalLayout.findFirstVisibleItemPosition());
             if (!isEditMode)
                 setMode(true, -1);
@@ -172,7 +172,7 @@ public class SpCtrlBox extends RelativeLayout {
     public void setMode(boolean editMode, int currentPosition){
         if (editMode)
         {
-            vLyEdit.setVisibility(VISIBLE);
+            vEdit.setVisibility(VISIBLE);
             vEdit.setIcon(mIconSave, 0);
 //            ivEdit.setImageDrawable(mIconSave);
 //            vEdit.setAlpha(180);
@@ -196,8 +196,9 @@ public class SpCtrlBox extends RelativeLayout {
         {
             RefreshCntText();
             if(IncRecyclerView.getAdapter() == null || IncRecyclerView.getAdapter().getItemCount() == 0){
-                vLyEdit.setVisibility(GONE);
+                vEdit.setVisibility(GONE);
                 SetViewVisible(false);
+                invalidate();
             }
             else
                 SetViewVisible(true);
@@ -316,10 +317,11 @@ public class SpCtrlBox extends RelativeLayout {
 
         if(adapter.getItemCount() > 0){
             SetViewVisible(true);
-            vLyEdit.setVisibility(VISIBLE);
+            vEdit.setVisibility(VISIBLE);
         }
 
         IncRecyclerView.invalidate();
+        invalidate();
     }
 
     @SuppressLint("SetTextI18n")

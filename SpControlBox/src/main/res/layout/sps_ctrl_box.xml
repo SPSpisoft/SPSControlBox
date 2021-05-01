@@ -66,7 +66,7 @@
     <LinearLayout
         android:id="@+id/lyControl"
         android:elevation="2dp"
-        android:visibility="visible"
+        android:visibility="gone"
         android:orientation="horizontal"
         android:layout_marginTop="@dimen/sps_lpr_5"
         android:layout_marginEnd="@dimen/sps_lpr_sz_20"
@@ -87,12 +87,12 @@
         <!--            app:cv_strokeColorValue="@android:color/white"-->
         <!--            app:cv_backgroundColorValue="@android:color/darker_gray"/>-->
 
-        <RelativeLayout
-            android:id="@+id/ily_edit"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:layout_width="@dimen/sps_lpr_sz_30"
-            android:layout_height="@dimen/sps_lpr_sz_30">
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/ily_edit"-->
+<!--            android:visibility="gone"-->
+<!--            tools:visibility="visible"-->
+<!--            android:layout_width="@dimen/sps_lpr_sz_30"-->
+<!--            android:layout_height="@dimen/sps_lpr_sz_30">-->
 
             <com.spisoft.spcircleview.CircleView
                 android:id="@+id/cv_edit"
@@ -117,7 +117,7 @@
 <!--                android:layout_marginStart="@dimen/sps_lpr_5"-->
 <!--                android:src="@drawable/ic_baseline_edit_24"/>-->
 
-        </RelativeLayout>
+<!--        </RelativeLayout>-->
 
         <com.spisoft.spcircleview.CircleView
             android:id="@+id/cv_add"
