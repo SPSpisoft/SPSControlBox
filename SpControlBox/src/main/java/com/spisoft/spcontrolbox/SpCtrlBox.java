@@ -277,6 +277,7 @@ public class SpCtrlBox extends RelativeLayout {
         }
         if(isEditMode)
             setMode(false, -1);
+
         invalidate();
     }
 
@@ -340,6 +341,9 @@ public class SpCtrlBox extends RelativeLayout {
             vDelete.setVisibility(VISIBLE);
             vEdit.setVisibility(VISIBLE);
             vEdit.setIcon(mIconEdit, 0);
+        }else {
+            vDelete.setVisibility(GONE);
+            vEdit.setVisibility(GONE);
         }
 
         IncRecyclerView.invalidate();
