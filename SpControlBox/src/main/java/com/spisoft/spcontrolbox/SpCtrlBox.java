@@ -149,7 +149,7 @@ public class SpCtrlBox extends RelativeLayout {
         mIconAdd = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_add_24, null);
 
         vEdit.setOnClickListener(v -> {
-            mOnEditClickTaskListener.onEvent(isEditMode, HorizontalLayout.findFirstVisibleItemPosition());
+            mOnEditClickTaskListener.onEvent(isEditMode, HorizontalLayout != null ? HorizontalLayout.findFirstVisibleItemPosition() : -1);
             if (!isEditMode)
                 setMode(true, -1);
         });
