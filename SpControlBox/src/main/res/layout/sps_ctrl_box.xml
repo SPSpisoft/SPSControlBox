@@ -131,7 +131,7 @@
 
     </LinearLayout>
 
-    <com.spisoft.spcircleview.CircleView
+    <ImageView
         android:id="@+id/cv_before_n"
         android:layout_height="@dimen/sps_lpr_sz_30"
         android:layout_width="@dimen/sps_lpr_sz_30"
@@ -139,15 +139,17 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/sps_lpr_sz_20"
         android:layout_marginStart="-5dp"
-        android:visibility="gone"
+        android:visibility="visible"
+        android:background="@drawable/ic_baseline_circle_24"
         android:elevation="5dp"
-        app:cv_icon="@drawable/ic_baseline_navigate_before_24"
-        app:cv_icon_margin="@dimen/sps_lpr_5"
-        app:cv_strokeColorValue="@android:color/white"
-        app:cv_fillColor="@android:color/white"
-        app:cv_backgroundColorValue="@android:color/white"/>
+        android:src="@drawable/ic_baseline_navigate_before_24"/>
+<!--        app:cv_icon="@drawable/ic_baseline_navigate_before_24"-->
+<!--        app:cv_icon_margin="@dimen/sps_lpr_5"-->
+<!--        app:cv_strokeColorValue="@android:color/white"-->
+<!--        app:cv_fillColor="@android:color/white"-->
+<!--        app:cv_backgroundColorValue="@android:color/white"/>-->
 
-    <com.spisoft.spcircleview.CircleView
+    <ImageView
         android:id="@+id/cv_next_n"
         android:layout_height="@dimen/sps_lpr_sz_30"
         android:layout_width="@dimen/sps_lpr_sz_30"
@@ -155,13 +157,15 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/sps_lpr_sz_20"
         android:layout_marginEnd="-5dp"
-        android:visibility="gone"
-        android:elevation="5dp"
-        app:cv_icon="@drawable/ic_baseline_navigate_next_24"
-        app:cv_icon_margin="@dimen/sps_lpr_5"
-        app:cv_strokeColorValue="@android:color/white"
-        app:cv_fillColor="@android:color/white"
-        app:cv_backgroundColorValue="@android:color/white"/>
+        android:visibility="visible"
+        android:elevation="1dp"
+        android:background="@drawable/ic_baseline_circle_24"
+        android:src="@drawable/ic_baseline_navigate_next_24"/>
+<!--        app:cv_icon="@drawable/ic_baseline_navigate_next_24"-->
+<!--        app:cv_icon_margin="@dimen/sps_lpr_5"-->
+<!--        app:cv_strokeColorValue="@android:color/white"-->
+<!--        app:cv_fillColor="@android:color/white"-->
+<!--        app:cv_backgroundColorValue="@android:color/white"/>-->
 
     <TextView
         android:id="@+id/txtDesc_n"

@@ -39,6 +39,15 @@ public class MainActivity extends AppCompatActivity {
         LayoutInflater inflater0 = LayoutInflater.from(MainActivity.this);
         spLateBoxAdd.AddView(inflater0.inflate(R.layout.test_view, null));
 
+        TestListAdapter testListAdapter0 = new TestListAdapter();
+        List<ClsTest> mList0 = new ArrayList<>();
+        mList0.add(new ClsTest("1", "ADD 1", true));
+        mList0.add(new ClsTest("2", "add 2 ", false));
+        mList0.add(new ClsTest("3", "add 3", true));
+        mList0.add(new ClsTest("4", "add 4", true));
+        testListAdapter0.updateList(mList0);
+        spLateBoxAdd.SetList(testListAdapter0);
+
         spLateBoxAdd.setOnAddClickTaskListener(new SpCtrlBox.OnAddClickTaskListener() {
             @Override
             public void onEvent(boolean editMode) {

@@ -51,7 +51,8 @@ public class SpCtrlBox extends RelativeLayout {
     private boolean isEditMode = false;
     private boolean isViewBottom = false;
     private View LyCnt;
-    private CircleView vBefore, vBefore_n, vNext, vNext_n;
+    private CircleView vBefore, vNext;
+    private ImageView vNext_n, vBefore_n;
 
     public SpCtrlBox(Context context) {
         super(context);
@@ -103,16 +104,16 @@ public class SpCtrlBox extends RelativeLayout {
         vText_n = rootView.findViewById(R.id.txtDesc_n);
 
         Configuration config = getResources().getConfiguration();
-        if(config.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL) {
+        if(config.getLayoutDirection() != View.LAYOUT_DIRECTION_LTR) {
             vBefore.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_before_24), 0);
-            vBefore_n.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_before_24), 0);
+            vBefore_n.setImageResource((R.drawable.ic_baseline_navigate_before_24));
             vNext.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_next_24), 0);
-            vNext_n.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_next_24), 0);
+            vNext_n.setImageResource((R.drawable.ic_baseline_navigate_next_24));
         }else {
             vBefore.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_next_24), 0);
-            vBefore_n.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_next_24), 0);
+            vBefore_n.setImageResource((R.drawable.ic_baseline_navigate_next_24));
             vNext.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_before_24), 0);
-            vNext_n.setIcon(getResources().getDrawable(R.drawable.ic_baseline_navigate_before_24), 0);
+            vNext_n.setImageResource((R.drawable.ic_baseline_navigate_before_24));
         }
 
         vNext.setOnClickListener(v -> {
@@ -259,7 +260,7 @@ public class SpCtrlBox extends RelativeLayout {
             }
         } else {
             if(isViewBottom)
-                LyCnt.setVisibility(GONE);
+                LyCnt.setVisibility(VISIBLE);  // TODO ??? Gone
             else {
                 vText_n.setVisibility(GONE);
                 vBefore_n.setVisibility(GONE);
@@ -352,7 +353,7 @@ public class SpCtrlBox extends RelativeLayout {
 
     @SuppressLint("SetTextI18n")
     private void RefreshCntText() {
-        int mItem = HorizontalLayout.findFirstVisibleItemPosition()+1;
+        int mItem = HorizontalLayout != null ? HorizontalLayout.findFirstVisibleItemPosition()+1 : 0;
         String CurrentItem = String.valueOf(mItem);
         vText.setText("  " + CurrentItem + "/" + HorizontalLayout.getItemCount() + "  ");
         vText_n.setText("  " + CurrentItem + "/" + HorizontalLayout.getItemCount() + "  ");
@@ -366,8 +367,8 @@ public class SpCtrlBox extends RelativeLayout {
         }
 
         if(mItem == HorizontalLayout.getItemCount()){
-            vNext.setAlpha(50);
-            vNext_n.setAlpha(50);
+            vNext.setAlpha(60);
+            vNext_n.setAlpha(60);
         } else {
             vNext.setAlpha(255);
             vNext_n.setAlpha(255);
