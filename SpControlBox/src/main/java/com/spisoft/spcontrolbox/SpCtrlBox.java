@@ -262,7 +262,7 @@ public class SpCtrlBox extends RelativeLayout {
             if(isViewBottom)
                 LyCnt.setVisibility(VISIBLE);  // TODO ??? Gone
             else {
-                vText_n.setVisibility(GONE);
+                vText_n.setVisibility(VISIBLE);
                 vBefore_n.setVisibility(GONE);
                 vNext_n.setVisibility(GONE);
             }
