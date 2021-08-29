@@ -172,7 +172,7 @@
         android:textColor="@android:color/darker_gray"
         android:background="@android:color/white"
         android:gravity="center"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_toEndOf="@+id/cv_head"
         android:layout_marginTop="@dimen/sps_lpr_10"
         android:layout_marginStart="@dimen/sps_lpr_sz_20"
