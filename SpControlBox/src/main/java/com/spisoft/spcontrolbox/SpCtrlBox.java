@@ -282,6 +282,20 @@ public class SpCtrlBox extends RelativeLayout {
         invalidate();
     }
 
+//    public void Invalidate(){
+////        if(editMode) {
+////            vLyControl.setVisibility(VISIBLE);
+////        }
+////        else{
+////            vLyControl.setVisibility(GONE);
+////        }
+////        if(isEditMode)
+////            setMode(false, -1);
+//
+//        RefreshCntText();
+//        invalidate();
+//    }
+
     @SuppressLint("UseCompatLoadingForDrawables")
     public void SetHeadSrc(int headSrc, int fillColor, int strokeColor){
         IvsHead.setIcon(getResources().getDrawable(headSrc), 0);
@@ -352,7 +366,7 @@ public class SpCtrlBox extends RelativeLayout {
     }
 
     @SuppressLint("SetTextI18n")
-    private void RefreshCntText() {
+    public void RefreshCntText() {
         int mItem = HorizontalLayout != null ? HorizontalLayout.findFirstVisibleItemPosition()+1 : 0;
         String CurrentItem = String.valueOf(mItem);
         vText.setText("  " + CurrentItem + "/" + HorizontalLayout.getItemCount() + "  ");
