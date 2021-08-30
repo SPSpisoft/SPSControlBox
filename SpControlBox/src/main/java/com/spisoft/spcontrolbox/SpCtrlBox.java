@@ -363,6 +363,7 @@ public class SpCtrlBox extends RelativeLayout {
 
         IncRecyclerView.invalidate();
         invalidate();
+        RefreshCntText();
     }
 
     @SuppressLint("SetTextI18n")
