@@ -34,7 +34,7 @@ public class SpCtrlBox extends RelativeLayout {
 
     private Context mContext;
     private RecyclerView IncRecyclerView;
-    private LinearLayoutManager HorizontalLayout;
+    private LinearLayoutManager HorVerLayout;
     private TextView vText, vText_n;
     private CircleView IvsHead;
     private CircleView vDelete;
@@ -42,6 +42,7 @@ public class SpCtrlBox extends RelativeLayout {
     private CircleView vAdd;
 //    private View vLyEdit;
 //    private ImageView ivEdit;
+    private String mTitle;
     private Drawable mIconAdd, mIconEdit, mIconSave, mIconCancel;
     private RelativeLayout vMain;
     private LinearLayout vLyControl;
@@ -117,32 +118,52 @@ public class SpCtrlBox extends RelativeLayout {
         }
 
         vNext.setOnClickListener(v -> {
-            int __CurrentPosition = HorizontalLayout.findFirstVisibleItemPosition();
-            if(__CurrentPosition < HorizontalLayout.getItemCount())
-                HorizontalLayout.smoothScrollToPosition(IncRecyclerView, null ,HorizontalLayout.findFirstVisibleItemPosition()+1);
-//                    HorizontalLayout.scrollToPositionWithOffset(HorizontalLayout.findFirstVisibleItemPosition()+1, 0);
+            int __CurrentPosition = HorVerLayout.findFirstVisibleItemPosition();
+            if(__CurrentPosition < HorVerLayout.getItemCount())
+                HorVerLayout.smoothScrollToPosition(IncRecyclerView, null ,HorVerLayout.findFirstVisibleItemPosition()+1);
+//                    HorVerLayout.scrollToPositionWithOffset(HorVerLayout.findFirstVisibleItemPosition()+1, 0);
         });
 
         vNext_n.setOnClickListener(v -> {
-            int __CurrentPosition = HorizontalLayout.findFirstVisibleItemPosition();
-            if(__CurrentPosition < HorizontalLayout.getItemCount())
-                HorizontalLayout.smoothScrollToPosition(IncRecyclerView, null ,HorizontalLayout.findFirstVisibleItemPosition()+1);
-//                    HorizontalLayout.scrollToPositionWithOffset(HorizontalLayout.findFirstVisibleItemPosition()+1, 0);
+            int __CurrentPosition = HorVerLayout.findFirstVisibleItemPosition();
+            if(__CurrentPosition < HorVerLayout.getItemCount())
+                HorVerLayout.smoothScrollToPosition(IncRecyclerView, null ,HorVerLayout.findFirstVisibleItemPosition()+1);
+//                    HorVerLayout.scrollToPositionWithOffset(HorVerLayout.findFirstVisibleItemPosition()+1, 0);
         });
 
         vBefore.setOnClickListener(v -> {
-            int __CurrentPosition = HorizontalLayout.findFirstVisibleItemPosition();
+            int __CurrentPosition = HorVerLayout.findFirstVisibleItemPosition();
             if(__CurrentPosition > 0)
-                HorizontalLayout.smoothScrollToPosition(IncRecyclerView, null ,HorizontalLayout.findFirstVisibleItemPosition()-1);
-//                    HorizontalLayout.scrollToPositionWithOffset(HorizontalLayout.findFirstVisibleItemPosition()-1, 0);
+                HorVerLayout.smoothScrollToPosition(IncRecyclerView, null ,HorVerLayout.findFirstVisibleItemPosition()-1);
+//                    HorVerLayout.scrollToPositionWithOffset(HorVerLayout.findFirstVisibleItemPosition()-1, 0);
         });
 
         vBefore_n.setOnClickListener(v -> {
-            int __CurrentPosition = HorizontalLayout.findFirstVisibleItemPosition();
+            int __CurrentPosition = HorVerLayout.findFirstVisibleItemPosition();
             if(__CurrentPosition > 0)
-                HorizontalLayout.smoothScrollToPosition(IncRecyclerView, null ,HorizontalLayout.findFirstVisibleItemPosition()-1);
-//                    HorizontalLayout.scrollToPositionWithOffset(HorizontalLayout.findFirstVisibleItemPosition()-1, 0);
+                HorVerLayout.smoothScrollToPosition(IncRecyclerView, null ,HorVerLayout.findFirstVisibleItemPosition()-1);
+//                    HorVerLayout.scrollToPositionWithOffset(HorVerLayout.findFirstVisibleItemPosition()-1, 0);
         });
+
+//        vNext_anim = YoYo.with(Techniques.FadeInRight)
+//                .duration(4000)
+//                .repeat(YoYo.INFINITE)
+//                .playOn(vNext);
+//
+//        vNext_n_anim = YoYo.with(Techniques.FadeInRight)
+//                .duration(6000)
+//                .repeat(YoYo.INFINITE)
+//                .playOn(vNext_n);
+//
+//        vBefore_anim = YoYo.with(Techniques.Flash)
+//                .duration(6000)
+//                .repeat(YoYo.INFINITE)
+//                .playOn(vBefore);
+//
+//        vBefore_n_anim = YoYo.with(Techniques.SlideOutLeft)
+//                .duration(6000)
+//                .repeat(YoYo.INFINITE)
+//                .playOn(vBefore_n);
 
         mIconSave = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_check_24, null);
         mIconCancel = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_close_24, null);
@@ -150,7 +171,7 @@ public class SpCtrlBox extends RelativeLayout {
         mIconAdd = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_add_24, null);
 
         vEdit.setOnClickListener(v -> {
-            mOnEditClickTaskListener.onEvent(isEditMode, HorizontalLayout != null ? HorizontalLayout.findFirstVisibleItemPosition() : -1);
+            mOnEditClickTaskListener.onEvent(isEditMode, HorVerLayout != null ? HorVerLayout.findFirstVisibleItemPosition() : -1);
             if (!isEditMode)
                 setMode(true, -1);
         });
@@ -162,7 +183,7 @@ public class SpCtrlBox extends RelativeLayout {
         });
 
         vDelete.setOnClickListener(v -> {
-            if(mOnDeleteClickTaskListener != null) mOnDeleteClickTaskListener.onEvent();
+            if(mOnDeleteClickTaskListener != null) mOnDeleteClickTaskListener.onEvent(HorVerLayout != null ? HorVerLayout.findFirstVisibleItemPosition() : -1);
         });
 
 //        mIconSave = getResources().getDrawable(R.drawable.ic_baseline_check_24);
@@ -213,7 +234,7 @@ public class SpCtrlBox extends RelativeLayout {
             else
                 SetViewVisible(true);
 
-            if(HorizontalLayout.getItemCount() > 0)
+            if(HorVerLayout.getItemCount() > 0)
             {
                 vEdit.setVisibility(VISIBLE);
                 vDelete.setVisibility(VISIBLE);
@@ -232,7 +253,7 @@ public class SpCtrlBox extends RelativeLayout {
             vMain.setVisibility(GONE);
 
             if(currentPosition >= 0)
-                HorizontalLayout.smoothScrollToPosition(IncRecyclerView, null , currentPosition);
+                HorVerLayout.smoothScrollToPosition(IncRecyclerView, null , currentPosition);
 
 //            new Handler().postDelayed(new Runnable() {
 //                @Override
@@ -305,6 +326,15 @@ public class SpCtrlBox extends RelativeLayout {
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
+    public void SetHeadSrc(int headSrc, String title, int fillColor, int strokeColor){
+        IvsHead.setIcon(getResources().getDrawable(headSrc), 0);
+        if(title != null) mTitle = title;
+        if(strokeColor != 0) IvsHead.setStrokeColor(strokeColor);
+        if(fillColor != 0) IvsHead.setFillColor(fillColor);
+        invalidate();
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
     public void SetSrc(int addIcn, int cancelIcn, int editIcn, int saveIcn){
         mIconAdd = getResources().getDrawable(addIcn);
         mIconCancel = getResources().getDrawable(cancelIcn);
@@ -315,7 +345,7 @@ public class SpCtrlBox extends RelativeLayout {
 
     public void SetList(RecyclerView.Adapter<RecyclerView.ViewHolder> adapter){
         IncRecyclerView.setAdapter(adapter);
-        HorizontalLayout = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false) {
+        HorVerLayout = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false) {
             @Override
             public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int position) {
                 SnappySmoothScroller scroller = new SnappySmoothScroller.Builder()
@@ -333,8 +363,8 @@ public class SpCtrlBox extends RelativeLayout {
             }
         };
 
-        IncRecyclerView.setLayoutManager(HorizontalLayout);
-        HorizontalLayout.setSmoothScrollbarEnabled(false);
+        IncRecyclerView.setLayoutManager(HorVerLayout);
+        HorVerLayout.setSmoothScrollbarEnabled(false);
 
         IncRecyclerView.addOnItemTouchListener(new RecyclerView.SimpleOnItemTouchListener() {
             @Override
@@ -367,11 +397,11 @@ public class SpCtrlBox extends RelativeLayout {
     }
 
     @SuppressLint("SetTextI18n")
-    public void RefreshCntText() {
-        int mItem = HorizontalLayout != null ? HorizontalLayout.findFirstVisibleItemPosition()+1 : 0;
+    private void RefreshCntText() {
+        int mItem = HorVerLayout != null ? HorVerLayout.findFirstVisibleItemPosition()+1 : 0;
         String CurrentItem = String.valueOf(mItem);
-        vText.setText("  " + CurrentItem + "/" + HorizontalLayout.getItemCount() + "  ");
-        vText_n.setText("  " + CurrentItem + "/" + HorizontalLayout.getItemCount() + "  ");
+        vText.setText("  " + CurrentItem + "/" + HorVerLayout.getItemCount() + "  ");
+        vText_n.setText("  " + CurrentItem + "/" + HorVerLayout.getItemCount() + "  ");
 
         if(mItem == 1){
             vBefore.setAlpha(60);
@@ -381,7 +411,7 @@ public class SpCtrlBox extends RelativeLayout {
             vBefore_n.setAlpha(255);
         }
 
-        if(mItem == HorizontalLayout.getItemCount()){
+        if(mItem == HorVerLayout.getItemCount()){
             vNext.setAlpha(60);
             vNext_n.setAlpha(60);
         } else {
@@ -412,7 +442,7 @@ public class SpCtrlBox extends RelativeLayout {
     }
 
     public interface OnDeleteClickTaskListener {
-        void onEvent();
+        void onEvent(int currentPosition);
     }
 
     public void setOnDeleteClickTaskListener(OnDeleteClickTaskListener eventListener) {
